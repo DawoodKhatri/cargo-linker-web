@@ -1,6 +1,7 @@
 "use client";
 import { SERVICE_TYPES } from "@/constants/serviceTypes";
 import httpRequest from "@/utils/httpRequest";
+import { Modal } from "antd";
 import moment from "moment";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -10,6 +11,7 @@ const AdminCompanyVerificationPage = ({ params: { companyId } }) => {
   const router = useRouter();
   const [company, setCompany] = useState();
   const [remark, setRemark] = useState("");
+  const [document, setDocument] = useState();
 
   useEffect(() => {
     getCompanyDetails();
@@ -72,11 +74,18 @@ const AdminCompanyVerificationPage = ({ params: { companyId } }) => {
 
   if (!company) return <></>;
 
-  const { name, email, establishmentDate, registrationNumber, serviceType } =
-    company;
+  const {
+    name,
+    email,
+    establishmentDate,
+    registrationNumber,
+    serviceType,
+    license,
+    bankStatement,
+  } = company;
 
   return (
-    <div className="w-full min-h-[calc(100vh-64px)] flex flex-col justify-center items-center p-10 md:px-20">
+    <div className="w-full min-h-screen flex flex-col justify-center items-center p-10 md:px-20 pt-24">
       <div className="w-full max-w-lg flex flex-col justify-center itemc gap-10">
         <h1 className="text-4xl md:text-5xl font-bold text-primary text-center">
           {name}
@@ -110,7 +119,10 @@ const AdminCompanyVerificationPage = ({ params: { companyId } }) => {
             <tr>
               <td>License</td>
               <td>
-                <button className="primary-button !py-1 !text-base">
+                <button
+                  className="primary-button !py-1 !text-base"
+                  onClick={() => setDocument(license)}
+                >
                   View File
                 </button>
               </td>
@@ -118,7 +130,10 @@ const AdminCompanyVerificationPage = ({ params: { companyId } }) => {
             <tr>
               <td>Bank Statement</td>
               <td>
-                <button className="primary-button !py-1 !text-base">
+                <button
+                  className="primary-button !py-1 !text-base"
+                  onClick={() => setDocument(bankStatement)}
+                >
                   View File
                 </button>
               </td>
@@ -139,6 +154,24 @@ const AdminCompanyVerificationPage = ({ params: { companyId } }) => {
           </button>
         </div>
       </div>
+      <Modal
+        open={!!document}
+        onCancel={() => setDocument()}
+        footer={
+          <button
+            className="ml-auto primary-button"
+            onClick={() => setDocument()}
+          >
+            Close
+          </button>
+        }
+      >
+        <h3 className="text-2xl font-semibold">
+          {document === license ? "License" : "Bank Statement"}
+        </h3>
+
+        <img className="w-full h-auto rounded-lg my-5" src={document} />
+      </Modal>
     </div>
   );
 };

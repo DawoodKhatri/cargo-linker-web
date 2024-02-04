@@ -39,7 +39,7 @@ const AdminLogin = () => {
     }
   };
   return (
-    <div className="w-full min-h-[calc(100vh-64px)] flex justify-center items-center bg-[#eeeeee]">
+    <div className="w-full min-h-screen flex justify-center items-center bg-[#eeeeee]">
       <div className="w-full m-5 max-w-md p-8 bg-white rounded-lg shadow-md">
         <h1 className="text-center text-3xl font-semibold mb-8">Admin Login</h1>
         <form className="flex flex-col gap-4" onSubmit={adminLogin}>

@@ -30,7 +30,7 @@ const AdminVerificationsPage = () => {
     }
   };
   return (
-    <div className="w-full min-h-[calc(100vh-64px)] p-10 md:px-20 bg-[#eeeeee]">
+    <div className="w-full min-h-screen p-10 md:px-20 pt-24 bg-[#eeeeee]">
       {companies.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-10">
           {companies.map((company, index) => (
