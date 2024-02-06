@@ -8,14 +8,13 @@ const HomePage = () => {
         src="images/banner.jpeg"
       />
 
-      <div className="w-full h-full bg-gradient-to-br from-black/50 to-black/25 flex flex-col justify-center p-8 md:p-16">
-       
-         <h1 className="text-primary tracking-wider text-7xl md:text-8xl lg:text-9xl font-bold drop-shadow-2xl">
+      <div className="w-full h-full bg-gradient-to-r from-black/75 to-black/25 flex flex-col justify-center p-8 md:p-16">
+        <h1 className="text-primary tracking-widest text-7xl md:text-8xl lg:text-9xl font-bold drop-shadow-2xl">
           CARGO LINKER
         </h1>
-       
-        <p className="text-white tracking-wide font-semibold text-2xl md:text-3xl lg:text-4xl drop-shadow-2xl">
-          BRIDGING TRADERS AND LOGISTIC SERVICE PROVIDERS
+
+        <p className="text-white tracking-wider font-semibold text-3xl md:text-4xl lg:text-5xl drop-shadow-2xl">
+          STREAMLINED CONTAINER BOOKING APP
         </p>
       </div>
     </div>
